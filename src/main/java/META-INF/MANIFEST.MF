@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: httpcore-4.4.6.jar lz4-java-1.7.1.jar httpclient-4.5.3.jar j
+ akarta.el-api-3.0.3.jar commons-compress-1.19.jar jackson-datatype-joda
+ -2.10.2.jar jakarta.el-3.0.2.jar hbc-core-2.2.0.jar jersey-common-2.30.
+ jar kafka-schema-serializer-5.5.0.jar joauth-6.0.2.jar commons-lang3-3.
+ 2.1.jar jsr305-1.3.9.jar swagger-core-1.5.3.jar jboss-logging-3.3.2.Fin
+ al.jar swagger-models-1.5.3.jar guava-14.0.1.jar slf4j-simple-1.7.25.ja
+ r jersey-client-2.30.jar classmate-1.3.4.jar jersey-server-2.30.jar zst
+ d-jni-1.4.4-7.jar commons-logging-1.2.jar jakarta.validation-api-2.0.2.
+ jar hibernate-validator-6.0.17.Final.jar jackson-core-2.10.2.jar jakart
+ a.annotation-api-1.3.5.jar kafka-avro-serializer-5.5.0.jar jackson-anno
+ tations-2.10.2.jar kafka-clients-5.5.0-ccs.jar snakeyaml-1.24.jar avro-
+ 1.9.1.jar slf4j-api-1.7.26.jar joda-time-2.9.9.jar common-config-5.5.0.
+ jar jersey-media-jaxb-2.30.jar snappy-java-1.1.7.3.jar jakarta.inject-2
+ .6.1.jar jackson-dataformat-yaml-2.10.2.jar swagger-annotations-1.5.22.
+ jar osgi-resource-locator-1.0.3.jar jakarta.activation-api-1.2.1.jar co
+ mmon-utils-5.5.0.jar kafka-schema-registry-client-5.5.0.jar jackson-dat
+ abind-2.10.2.jar jakarta.ws.rs-api-2.1.6.jar jakarta.xml.bind-api-2.3.2
+ .jar gson-2.2.4.jar jakarta.activation-1.2.1.jar commons-codec-1.9.jar 
+ jersey-bean-validation-2.30.jar
+

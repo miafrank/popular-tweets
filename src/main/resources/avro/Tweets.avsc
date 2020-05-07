@@ -1,0 +1,8 @@
+{"namespace": "com.github.miafrank.twitter",
+"type": "record",
+"name": "Tweets",
+"fields": [
+{"name": "tweet", "type": "string"},
+{"name": "userName", "type": "string"},
+{"name": "userNumFollowers", "type": "string"}
+]}
