@@ -15,10 +15,7 @@ public class TwitterConsumer {
     public static void main(String[] args) {
         final String TOPIC = "popular_tweets";
         final Logger logger = LoggerFactory.getLogger(TwitterConsumer.class);
-
-        TwitterConsumerProperties consumerProperties = new TwitterConsumerProperties();
-        KafkaConsumer<String, Tweets> consumer = consumerProperties.createKafkaConsumer();
-
+        KafkaConsumer<String, Tweets> consumer = new TwitterConsumerProperties().createKafkaConsumer();
         try {
             consumer.subscribe(Collections.singletonList(TOPIC));
             while (true) {

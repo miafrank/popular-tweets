@@ -20,8 +20,7 @@ public class TwitterProducer {
     final String topic = "popular_tweets";
     List<String> terms = Lists.newArrayList("conspiracy", "conspiracyTheory", "fakenews");
 
-    public TwitterProducer() {
-    }
+    public TwitterProducer() {}
 
     public static void main(String[] args) {
         new TwitterProducer().run();
@@ -36,8 +35,7 @@ public class TwitterProducer {
         Client client = twitterClient.createTwitterClient(msgQueue, terms);
         client.connect();
 
-        TwitterProducerProperties twitterProducerProperties = new TwitterProducerProperties();
-        KafkaProducer<String, Tweets> producer = twitterProducerProperties.createKafkaProducer();
+        KafkaProducer<String, Tweets> producer = new TwitterProducerProperties().createKafkaProducer();
 
         while (!client.isDone()) {
             String msg = null;
@@ -49,18 +47,14 @@ public class TwitterProducer {
                 client.stop();
             }
             if (msg != null) {
-                logger.info("Got tweet from Twitter API...");
-
                 JsonObject jsonObject = new Gson().fromJson(msg, JsonObject.class);
                 JsonObject userObj = jsonObject.get("user").getAsJsonObject();
                 String userId = userObj.get("id_str").getAsString();
 
                 final Tweets tweet = new Tweets(jsonObject.get("text").getAsString(),
                                                 userObj.get("name").getAsString(),
-                                                userObj.get("followers_count").getAsString());
-
+                                                userObj.get("followers_count").getAsInt());
                 final ProducerRecord<String, Tweets> record = new ProducerRecord<>(topic, userId, tweet);
-                logger.info("Adding message to topic: " + topic + " with id: " + userId);
 
                 producer.send(record);
                 try {
