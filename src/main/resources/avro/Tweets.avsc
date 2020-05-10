@@ -4,5 +4,5 @@
 "fields": [
 {"name": "tweet", "type": "string"},
 {"name": "userName", "type": "string"},
-{"name": "userNumFollowers", "type": "string"}
+{"name": "userNumFollowers", "type": "int"}
 ]}
