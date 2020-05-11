@@ -46,7 +46,7 @@ public class TwitterProducer {
 ```
 All messages conform to a certain schema (class) defined in `/resources/avro/Tweets.avsc` before they are sent to Kafka topic in Avro format. 
 ```java
-  public Tweets(java.lang.CharSequence tweet, java.lang.CharSequence userName, java.lang.Integer userNumFollowers) {
+public Tweets(java.lang.CharSequence tweet, java.lang.CharSequence userName, java.lang.Integer userNumFollowers) {
     this.tweet = tweet;
     this.userName = userName;
     this.userNumFollowers = userNumFollowers;
