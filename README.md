@@ -55,28 +55,28 @@ To crate an app:
     ```
 2. Check HBase for data: 
     1. Start HBase Shell: 
-      ```bash
-      docker exec -it hbase /bin/bash entrypoint.sh
-      ```
+          ```bash
+          docker exec -it hbase /bin/bash entrypoint.sh
+          ```
     2. Verify the table `popular-tweets-avro` exists. Output should be: 
-      ```bash
-     TABLE
-     example_table
-     1 row(s) in 0.2750 seconds
-     => ["popular-tweets-avro"]
-      ```
+          ```bash
+         TABLE
+         example_table
+         1 row(s) in 0.2750 seconds
+         => ["popular-tweets-avro"]
+          ```
     3. Verify table received data: 
-    ```bash
-    scan 'popular-tweets-avro'
-    ```
+        ```bash
+        scan 'popular-tweets-avro'
+        ```
 3. Clean up resources
     1. Delete the connector `confluent local unload hbase`
     2. Stop Confluent: `confluent local stop`
     3. Delete Dockerized Hbase instance
-        ```bash
-        docker stop hbase
-        docker rm -f hbase
-        ``` 
+            ```bash
+            docker stop hbase
+            docker rm -f hbase
+            ``` 
 
 ## Kafka Producer
 The producer ingests tweets from Twitter API configured by a list of search terms.
