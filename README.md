@@ -73,10 +73,10 @@ To crate an app:
     1. Delete the connector `confluent local unload hbase`
     2. Stop Confluent: `confluent local stop`
     3. Delete Dockerized Hbase instance
-            ```bash
-            docker stop hbase
-            docker rm -f hbase
-            ``` 
+        ```bash
+           docker stop hbase
+           docker rm -f hbase
+        ```
 
 ## Kafka Producer
 The producer ingests tweets from Twitter API configured by a list of search terms.
