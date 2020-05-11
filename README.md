@@ -36,7 +36,48 @@ Developer dashboard.
 To crate an app:  
     1. `Apps` -> `Create an app` -> Fill out App details form. 
     2. Copy key and tokens into `twitter.properties` file. 
-    
+
+## Running the app
+1. Create a Dockerized HBase Instance
+    1. Get the Docker image: 
+        ```bash
+        docker pull aaionap/hbase:1.2.0
+        ```
+    2. Start the HBase Docker Image
+        ```bash
+        docker run -d --name hbase --hostname hbase -p 2182:2181 -p 8080:8080 -p 8085:8085 -p 9090:9090 -p 9095:9095 -p 16000:16000 -p 16010:16010 -p 16201:16201 -p 16301:16301 aaionap/hbase:1.2.0
+        ```
+    3. Add an entry `127.0.0.1   hbase` to `/etc/hosts`.
+       
+1. Run Kafka Producer and Kafka Stream
+    ```bash
+    sh run.sh
+    ```
+2. Check HBase for data: 
+    1. Start HBase Shell: 
+      ```bash
+      docker exec -it hbase /bin/bash entrypoint.sh
+      ```
+    2. Verify the table `popular-tweets-avro` exists. Output should be: 
+      ```bash
+     TABLE
+     example_table
+     1 row(s) in 0.2750 seconds
+     => ["popular-tweets-avro"]
+      ```
+    3. Verify table received data: 
+    ```bash
+    scan 'popular-tweets-avro'
+    ```
+3. Clean up resources
+    1. Delete the connector `confluent local unload hbase`
+    2. Stop Confluent: `confluent local stop`
+    3. Delete Dockerized Hbase instance
+        ```bash
+        docker stop hbase
+        docker rm -f hbase
+        ``` 
+
 ## Kafka Producer
 The producer ingests tweets from Twitter API configured by a list of search terms.
 ```java
