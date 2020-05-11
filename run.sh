@@ -3,6 +3,8 @@
 # Used to run kafka producer for certain amount of time
 function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
 
+# Build package
+mvn clean compile package
 # Start Kafka, Zookeeper, and Schema Registry.
 confluent local stop connect && confluent local start connect
 # Configure Hbase to read from Kafka topic
