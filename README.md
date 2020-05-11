@@ -34,7 +34,7 @@ access tokens and keys to use Twitter API. When the tokens are received, keys an
 Developer dashboard.
 
 To crate an app:  
-    1. `Apps` -> `Create an app` -> Fill out App details form. 
+    1. `Apps` -> `Create an app` -> Fill out App details form.    
     2. Copy key and tokens into `twitter.properties` file. 
 
 ## Running the app
