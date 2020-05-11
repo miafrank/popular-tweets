@@ -4,7 +4,7 @@
 function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
 
 # Start Kafka, Zookeeper, and Schema Registry.
-confluent local start
+confluent local stop connect && confluent local start connect
 # Configure Hbase to read from Kafka topic
 confluent local load hbase -- -d hbase-avro.json
 
